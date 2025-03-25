@@ -1,0 +1,45 @@
+{
+	"author": {
+		"name": "Baptiste Pillot",
+		"email": "baptiste@pillot.fr"
+	},
+	"dependencies": {
+		"@itrocks/delete": "latest",
+		"@itrocks/edit": "latest",
+		"@itrocks/list": "latest",
+		"@itrocks/new": "latest",
+		"@itrocks/output": "latest",
+		"@itrocks/save": "latest",
+		"@itrocks/summary": "latest"
+	},
+	"description": "The it.rocks default CRUD pack",
+	"files": [
+		"LICENSE",
+		"README.md"
+	],
+	"homepage": "https://it.rocks",
+	"keywords": [
+		"backend",
+		"bundle",
+		"common",
+		"CRUD",
+		"delete",
+		"edit",
+		"it.rocks",
+		"kit",
+		"list",
+		"new",
+		"output",
+		"pack",
+		"preset",
+		"save",
+		"summary"
+	],
+	"license": "ISC",
+	"name": "@itrocks/crud-pack",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/itrocks-ts/crud-pack.git"
+	},
+	"version": "0.0.1"
+}
