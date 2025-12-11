@@ -133,8 +133,9 @@ Override only the `new` action:
 
 **app/movie/new.ts**
 ```ts
-import { New }   from '@itrocks/new'
-import { Movie } from '../movie.js'
+import { Request } from '@itrocks/action-request'
+import { New }     from '@itrocks/new'
+import { Movie }   from '../movie.js'
 
 @Route('/movie/new')
 export class NewMovie extends New<Movie>
@@ -165,5 +166,39 @@ If you want to customise all default CRUD actions for all business objects:
 }
 ```
 
-Then override any default CRUD component using inheritance
+Then override some default CRUD components using inheritance
 through [@itrocks/compose](https://github.com/itrocks-ts/compose).
+
+**app/custom-crud.ts**
+```ts
+import { Request }             from '@itrocks/action-request'
+import { Edit as DefaultEdit } from '@itrocks/edit'
+import { New  as DefaultNew }  from '@itrocks/new'
+
+export class Edit<T extends object = object> extends DefaultEdit<T>
+{
+  async html(request: Request<T>)
+  {
+    console.log('override all behaviour for edit action')
+    return super.html(request)
+  }
+}
+
+export class New<T extends object = object> extends DefaultNew<T>
+{
+  async html(request: Request<T>)
+  {
+    console.log('override all behaviour for new action')
+    return super.html(request)
+  }
+}
+```
+
+Finally, apply this mapping in your configuration file:
+
+**config.yaml**
+```yaml
+compose:
+  '@itrocks/edit': '/app/custom-crud:Edit'
+  '@itrocks/new': '/app/custom-crud:New'
+```
