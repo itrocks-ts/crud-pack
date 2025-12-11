@@ -19,12 +19,15 @@
 	],
 	"homepage": "https://it.rocks",
 	"keywords": [
+		"action",
+		"actions",
 		"backend",
 		"bundle",
 		"common",
-		"CRUD",
+		"crud",
 		"delete",
 		"edit",
+		"framework",
 		"it.rocks",
 		"kit",
 		"list",
@@ -32,8 +35,11 @@
 		"output",
 		"pack",
 		"preset",
+		"routing",
 		"save",
-		"summary"
+		"summary",
+		"ui",
+		"ux"
 	],
 	"license": "ISC",
 	"name": "@itrocks/crud-pack",
@@ -41,5 +47,5 @@
 		"type": "git",
 		"url": "git+https://github.com/itrocks-ts/crud-pack.git"
 	},
-	"version": "0.0.1"
+	"version": "0.0.2"
 }
