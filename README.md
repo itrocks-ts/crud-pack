@@ -17,18 +17,18 @@ npm i @itrocks/crud-pack
 Adding this single dependency pulls in a coherent set of packages that implement the typical CRUD flows,
 with default implementations for the most common actions on your domain objects:
 
-- [@itrocks/new](https://github.com/itrocks-ts/new):
-  Generic action-based new object form in HTML and JSON,
-- [@itrocks/edit](https://github.com/itrocks-ts/edit):
-  Generic action-based object edit form in HTML and JSON,
 - [@itrocks/delete](https://github.com/itrocks-ts/delete):
   Deletion action handling the button, user confirmation, data source deletion, and visual feedback,
+- [@itrocks/edit](https://github.com/itrocks-ts/edit):
+  Generic action-based object edit form in HTML and JSON,
 - [@itrocks/list](https://github.com/itrocks-ts/list):
   Generic action-based object list navigation in HTML and JSON,
-- [@itrocks/save](https://github.com/itrocks-ts/save):
-  Persist object data, processing input from HTML or JSON sources,
+- [@itrocks/new](https://github.com/itrocks-ts/new):
+  Generic action-based new object form in HTML and JSON,
 - [@itrocks/output](https://github.com/itrocks-ts/output):
   Generic action-based object output in HTML and JSON,
+- [@itrocks/save](https://github.com/itrocks-ts/save):
+  Persist object data, processing input from HTML or JSON sources,
 - [@itrocks/summary](https://github.com/itrocks-ts/summary):
   Generic action-based object summary in JSON.
 
@@ -40,8 +40,8 @@ It is primarily a convenience bundle that:
 
 ## Usage
 
-You typically use `@itrocks/crud-pack` in an application or library that defines
-**CRUD actions and views for a business object**.
+You typically use `@itrocks/crud-pack` in applications or libraries defining
+CRUD actions and views for business objects.
 
 Instead of depending on each CRUD package individually, simply install `@itrocks/crud-pack`
 and import the building blocks you need from their respective packages.
@@ -56,9 +56,9 @@ and import the building blocks you need from their respective packages.
 
 ## Examples
 
-### Example 1: Apply the default it.rocks CRUD pack to your application
+### Example 1: Apply the default CRUD pack to your it.rocks application
 
-Declare it as a dependency and the framework will automatically apply the default actions:
+Declare it as a dependency, and the it.rocks framework will automatically apply the default actions:
 
 **package.json**
 ```json
@@ -113,7 +113,7 @@ Output format depends on the
 }
 ```
 
-Define the exposed business object:
+Define the exposed domain object:
 
 **app/movie.ts**
 ```ts
@@ -141,7 +141,7 @@ import { Movie }   from '../movie.js'
 export class NewMovie extends New<Movie>
 {
 
-  async getObject(request: Request<T>)
+  async getObject(request: Request<Movie>)
   {
     const newMovie = await super.getObject(request)
     if (newMovie.title === '') {
@@ -155,7 +155,7 @@ export class NewMovie extends New<Movie>
 
 ### Example 3: Override CRUD behaviour globally
 
-If you want to customise all default CRUD actions for all business objects:
+To customise the default CRUD actions application-wide:
 
 **package.json**
 ```json
